@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="ios_bg_corner_radius">8dp</dimen>
+    <!-- Margin around the dialog, excluding the button bar -->
+    <dimen name="dialog_frame_margin">24dp</dimen>
+    <!-- Total title margin bottom is 16, but we split this between content and title -->
+    <dimen name="title_frame_margin_bottom">12dp</dimen>
+    <dimen name="title_icon_margin">16dp</dimen>
+</resources>

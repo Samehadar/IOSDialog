@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">IOSDialog</string>
+    <string name="standard_title">Title</string>
+    <string name="standard_message">Message</string>
+</resources>

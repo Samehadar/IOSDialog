@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- http://www.google.com/design/spec/style/color.html#color-color-palette -->
+    <color name="primary">#7B1FA2</color>
+    <color name="primaryDark">#6A1B9A</color>
+    <color name="accent">#DD2C00</color>
+    <color name="material_red_400">#EF5350</color>
+
+    <!-- Camomile colors -->
+    <color name="dark_gray_background">#ff404040</color>
+    <color name="ios_gray_text">#E91E63</color>
+    <color name="standard_white">#FFFFFF</color>
+
+    <!--IOS colors from http://ios7colors.com/-->
+    <color name="dark_gray">#8E8E93</color>
+    <color name="gray">#BDBEC2</color>
+    <color name="light_gray">#C7C7CC</color>
+
+</resources>
