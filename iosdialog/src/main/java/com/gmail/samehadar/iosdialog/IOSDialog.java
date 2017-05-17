@@ -235,7 +235,8 @@ public class IOSDialog extends Dialog {
         }
 
         /**
-         *
+         * @param indeterminate indeterminate
+         * @return {@link Builder} IOSDialog.Builder
          * @deprecated Do not use this method, it's not working now!
          */
         @Deprecated
@@ -245,7 +246,8 @@ public class IOSDialog extends Dialog {
         }
 
         /**
-         *
+         * @param dimAmount dimAmount
+         * @return {@link Builder} IOSDialog.Builder
          * @deprecated Do not use this method, it's not working now!
          */
         @Deprecated
@@ -293,7 +295,8 @@ public class IOSDialog extends Dialog {
         }
 
         /**
-         *
+         * @param color IOSDialog background ColorInt
+         * @return {@link Builder} IOSDialog.Builder
          * @deprecated Do not use this method, it's not working now!
          */
         @Deprecated
@@ -304,7 +307,8 @@ public class IOSDialog extends Dialog {
         }
 
         /**
-         *
+         * @param colorRes IOSDialog background colorRes
+         * @return {@link Builder} IOSDialog.Builder
          * @deprecated Do not use this method, it's not working now!
          */
         @Deprecated
@@ -313,7 +317,8 @@ public class IOSDialog extends Dialog {
         }
 
         /**
-         *
+         * @param colorAttr IOSDialog background colorAttr
+         * @return {@link Builder} IOSDialog.Builder
          * @deprecated Do not use this method, it's not working now!
          */
         @Deprecated
