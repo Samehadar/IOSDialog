@@ -22,7 +22,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="15dp">
 
-        <!-- set visible icon when add supporting for them -->
+        <!--TODO set visible icon when add supporting for them -->
         <ImageView
             android:id="@+id/title_icon"
             android:layout_width="wrap_content"
@@ -41,13 +41,12 @@
             android:visibility="visible"/>
     </LinearLayout>
 
-    <ImageView
+    <com.gmail.samehadar.iosdialog.CamomileSpinner
         android:id="@+id/spinner"
         android:layout_below="@id/title_frame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/spinner"/>
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:id="@+id/message"

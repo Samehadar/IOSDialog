@@ -14,10 +14,6 @@ import android.widget.TextView;
 
 import com.gmail.samehadar.iosdialog.utils.DialogUtils;
 
-/**
- * Created by Vitalu on 4/19/2017.
- */
-
 public class DialogInit {
 
 
@@ -41,7 +37,7 @@ public class DialogInit {
         dialog.titleFrame = (LinearLayout) dialog.rootView.findViewById(R.id.title_frame);
         dialog.titleIcon = (ImageView) dialog.rootView.findViewById(R.id.title_icon);
         dialog.title = (TextView) dialog.rootView.findViewById(R.id.title_text);
-        dialog.spinner = (ImageView) dialog.rootView.findViewById(R.id.spinner);
+        dialog.spinner = (CamomileSpinner) dialog.rootView.findViewById(R.id.spinner);
         dialog.message = (TextView) dialog.rootView.findViewById(R.id.message);
 
         // Set cancelable flag
@@ -99,50 +95,30 @@ public class DialogInit {
     }
 
     private static void setupSpinner(IOSDialog dialog, IOSDialog.Builder builder) {
-        //TODO:: replace ImageView by CamomileSpinner
-//            CamomileSpinner spinner = new CamomileSpinner(builder.context);
-//            spinner.setLayoutParams(dialog.spinner.getLayoutParams());
-//            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-//            params.addRule(RelativeLayout.BELOW, dialog.titleFrame.getId());
-//            params.addRule(RelativeLayout.ABOVE, dialog.message.getId());
-//            params.addRule(RelativeLayout.CENTER_HORIZONTAL);
-//            spinner.setLayoutParams(params);
-//            dialog.rootView.addView(spinner);
-//            dialog.rootView.removeView(dialog.spinner);
-//            dialog.addContentView(dialog.spinner, null);
             if (builder.spinnerColor == 0) builder.spinnerColor = CamomileSpinner.DEFAULT_COLOR;
             if (builder.spinnerDuration == 0) builder.spinnerDuration = CamomileSpinner.DEFAULT_DURATION;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                dialog.spinner.setBackground(DialogUtils.createAnimation(
-                        builder.context,
-                        builder.spinnerColor,
-                        builder.spinnerDuration,
-                        builder.spinnerClockwise)
-                );
-            } else {
-                dialog.spinner.setBackgroundDrawable(DialogUtils.createAnimation(
-                        builder.context,
-                        builder.spinnerColor,
-                        builder.spinnerDuration,
-                        builder.spinnerClockwise)
-                );
-            }
+            dialog.spinner.recreateWithParams(
+                    builder.context,
+                    builder.spinnerColor,
+                    builder.spinnerDuration,
+                    builder.spinnerClockwise
+            );
     }
 
     private static void setupListeners(IOSDialog dialog, IOSDialog.Builder builder) {
         // Setup user listeners
-//        if (builder.showListener != null) {
-//            dialog.setOnShowListener(builder.showListener);
-//        }
+        if (builder.showListener != null) {
+            dialog.setOnShowListener(builder.showListener);
+        }
         if (builder.cancelListener != null) {
             dialog.setOnCancelListener(builder.cancelListener);
         }
-//        if (builder.dismissListener != null) {
-//            dialog.setOnDismissListener(builder.dismissListener);
-//        }
-//        if (builder.keyListener != null) {
-//            dialog.setOnKeyListener(builder.keyListener);
-//        }
+        if (builder.dismissListener != null) {
+            dialog.setOnDismissListener(builder.dismissListener);
+        }
+        if (builder.keyListener != null) {
+            dialog.setOnKeyListener(builder.keyListener);
+        }
     }
 
     private static void setupMessageContent(IOSDialog dialog, IOSDialog.Builder builder) {

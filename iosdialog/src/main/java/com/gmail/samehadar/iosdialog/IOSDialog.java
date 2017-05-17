@@ -47,7 +47,7 @@ public class IOSDialog extends Dialog {
     protected LinearLayout titleFrame;
     protected ImageView titleIcon;
     protected TextView title;
-    protected ImageView spinner;
+    protected CamomileSpinner spinner;
     protected TextView message;
 
     private IOSDialog(IOSDialog.Builder builder) {
@@ -94,7 +94,10 @@ public class IOSDialog extends Dialog {
         protected int titleGravity;
         protected int messageGravity;
 
-        OnCancelListener cancelListener;
+        protected OnShowListener showListener;
+        protected OnCancelListener cancelListener;
+        protected OnDismissListener dismissListener;
+        protected OnKeyListener keyListener;
 
         protected Typeface regularFont;
         protected Typeface mediumFont;
@@ -216,6 +219,21 @@ public class IOSDialog extends Dialog {
             return this;
         }
 
+        public Builder setOnShowListener(@NonNull OnShowListener showListener) {
+            this.showListener = showListener;
+            return this;
+        }
+
+        public Builder setOnDismissListener(@NonNull OnDismissListener dismissListener) {
+            this.dismissListener = dismissListener;
+            return this;
+        }
+
+        public Builder setOnKeyListener(@NonNull OnKeyListener keyListener) {
+            this.keyListener = keyListener;
+            return this;
+        }
+
         /**
          *
          * @deprecated Do not use this method, it's not working now!
@@ -325,59 +343,7 @@ public class IOSDialog extends Dialog {
 
     }
 
-
-
-    public AnimationDrawable createAnimation() {
-        AnimationDrawable animation = new AnimationDrawable();
-        List<Drawable> drawables = new ArrayList<>(13);
-        Drawable dr0 = ContextCompat.getDrawable(getContext(), R.drawable.spinner_0);
-        Drawable dr1 = ContextCompat.getDrawable(getContext(), R.drawable.spinner_1);
-        Drawable dr2 = ContextCompat.getDrawable(getContext(), R.drawable.spinner_2);
-        Drawable dr3 = ContextCompat.getDrawable(getContext(), R.drawable.spinner_3);
-        Drawable dr4 = ContextCompat.getDrawable(getContext(), R.drawable.spinner_4);
-        Drawable dr5 = ContextCompat.getDrawable(getContext(), R.drawable.spinner_5);
-        Drawable dr6 = ContextCompat.getDrawable(getContext(), R.drawable.spinner_6);
-        Drawable dr7 = ContextCompat.getDrawable(getContext(), R.drawable.spinner_7);
-        Drawable dr8 = ContextCompat.getDrawable(getContext(), R.drawable.spinner_8);
-        Drawable dr9 = ContextCompat.getDrawable(getContext(), R.drawable.spinner_9);
-        Drawable dr10 = ContextCompat.getDrawable(getContext(), R.drawable.spinner_10);
-        Drawable dr11 = ContextCompat.getDrawable(getContext(), R.drawable.spinner_11);
-        Collections.addAll(drawables
-                , dr0
-                , dr1
-                , dr2
-                , dr3
-                , dr4
-                , dr5
-                , dr6
-                , dr7
-                , dr8
-                , dr9
-                , dr10
-                , dr11
-        );
-        for (Drawable drawable : drawables) {
-//            drawable.setColorFilter(ContextCompat.getColor(getContext(), R.color.material_red_400), PorterDuff.Mode.SRC_ATOP);
-//            drawable.setColorFilter(ContextCompat.getColor(getContext(), R.color.material_red_400), PorterDuff.Mode.SRC_IN);
-            drawable.setColorFilter(ContextCompat.getColor(getContext(), R.color.material_red_400), PorterDuff.Mode.MULTIPLY);
-        }
-
-        int duration = 60;
-        for (Drawable drawable: drawables) {
-            animation.addFrame(drawable, duration);
-        }
-        return animation;
-    }
-
-
-
-
-
-
-
-
-
-
+    //methods for future features
     private Drawable adjust(Drawable d) {
         int to = Color.RED;
 

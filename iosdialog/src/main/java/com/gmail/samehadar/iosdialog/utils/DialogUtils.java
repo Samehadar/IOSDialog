@@ -17,13 +17,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Created by Vitalu on 4/19/2017.
- */
-
 public class DialogUtils {
 
     private static List<Drawable> petals;
+    private static final int PETALS_COUNT = 12;
 
     private static final int DEFAULT_DURATION = 60;
 
@@ -72,7 +69,7 @@ public class DialogUtils {
 
     public static AnimationDrawable createAnimation(Context context, @ColorInt int color, int duration, boolean clockwise) {
         if (petals == null) {
-            petals = new ArrayList<>(13);
+            petals = new ArrayList<>(PETALS_COUNT);
             Drawable dr0 = ContextCompat.getDrawable(context, R.drawable.spinner_0);
             Drawable dr1 = ContextCompat.getDrawable(context, R.drawable.spinner_1);
             Drawable dr2 = ContextCompat.getDrawable(context, R.drawable.spinner_2);
@@ -101,7 +98,7 @@ public class DialogUtils {
             );
         }
         AnimationDrawable animation = new AnimationDrawable();
-        List<Drawable> drawables = new ArrayList<>(13);
+        List<Drawable> drawables = new ArrayList<>(PETALS_COUNT);
         for (Drawable drawable : petals) {
             Drawable drwNewCopy = drawable.getConstantState().newDrawable().mutate();
             drwNewCopy.setColorFilter(color, PorterDuff.Mode.MULTIPLY);
