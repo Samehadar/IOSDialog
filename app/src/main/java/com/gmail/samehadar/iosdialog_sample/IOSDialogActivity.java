@@ -1,17 +1,11 @@
 package com.gmail.samehadar.iosdialog_sample;
 
 import android.content.DialogInterface;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
-import com.gmail.samehadar.iosdialog.CamomileSpinner;
 import com.gmail.samehadar.iosdialog.IOSDialog;
-import com.gmail.samehadar.iosdialog.utils.DialogUtils;
 
 
 /**

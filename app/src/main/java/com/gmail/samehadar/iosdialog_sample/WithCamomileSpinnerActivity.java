@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import com.gmail.samehadar.iosdialog.CamomileSpinner;
 import com.gmail.samehadar.iosdialog.utils.DialogUtils;
@@ -21,7 +20,7 @@ public class WithCamomileSpinnerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.with_spinner_activity);
 
-        RelativeLayout activity_main = (RelativeLayout) findViewById(R.id.rootView);
+        LinearLayout activity_main = (LinearLayout) findViewById(R.id.rootView);
 
         CamomileSpinner spinner1 = (CamomileSpinner) findViewById(R.id.spinner1);
         spinner1.start();
