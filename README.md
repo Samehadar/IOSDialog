@@ -5,6 +5,27 @@ I decided to do this because, it was necessary to me in one project. And then I 
 
 Now the library has all necessary functions for implementation in your project. I will be engaged in its development further, but the main API will not change. And also you can contribute new idea to me.
 
+## Adding IOSDialog to your project
+
+### Gradle
+
+Include this in your module ```build.gradle```
+```
+dependencies {
+    compile 'com.gmail.samehadar:iosdialog:1.0'
+}
+```
+### Maven
+
+Include this in your ```pom file```
+```
+<dependency>
+  <groupId>com.gmail.samehadar</groupId>
+  <artifactId>iosdialog</artifactId>
+  <version>1.0</version>
+  <type>pom</type>
+</dependency>
+```
 ### Style example 1:
 
 ![alt text][gif1]

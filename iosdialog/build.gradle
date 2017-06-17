@@ -1,5 +1,10 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+
+ext {
+    PUBLISH_GROUP_ID = 'com.gmail.samehadar'
+    PUBLISH_ARTIFACT_ID = 'iosdialog'
+    PUBLISH_VERSION = '1.0'
+}
 
 android {
     compileSdkVersion 25
@@ -31,12 +36,4 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-//bintray-release block
-publish {
-    groupId = 'com.github.samehadar'
-    artifactId = 'iosdialog'
-    publishVersion = '1.0.0'
-    desc = 'The IOSDialog is an Android library, which using to use an dialog and spinner elements as in IOS'
-    licences = ['MIT']
-    website = 'https://github.com/Samehadar/IOSDialog'
-}
+apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/master/android-release-aar.gradle'
