@@ -5,6 +5,8 @@ I decided to do this because, it was necessary to me in one project. And then I 
 
 Now the library has all necessary functions for implementation in your project. I will be engaged in its development further, but the main API will not change. And also you can contribute new idea to me.
 
+<a href='https://bintray.com/samehadarcam/maven/IOSDialog?source=watch' alt='Get automatic notifications about new "IOSDialog" versions'><img src='https://www.bintray.com/docs/images/bintray_badge_bw.png'></a>
+
 ## Adding IOSDialog to your project
 
 ### Gradle
