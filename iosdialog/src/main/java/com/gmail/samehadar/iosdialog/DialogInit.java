@@ -6,10 +6,8 @@ import android.support.annotation.LayoutRes;
 import android.support.annotation.UiThread;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.gmail.samehadar.iosdialog.utils.DialogUtils;
