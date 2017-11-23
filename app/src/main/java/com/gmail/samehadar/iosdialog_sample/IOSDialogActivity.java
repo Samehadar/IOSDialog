@@ -55,6 +55,7 @@ public class IOSDialogActivity extends AppCompatActivity {
                 .setSpinnerClockwise(false)
                 .setSpinnerDuration(120)
                 .setMessageContentGravity(Gravity.END)
+                .setOneShot(false)
                 .build();
         dialog2.show();
     }

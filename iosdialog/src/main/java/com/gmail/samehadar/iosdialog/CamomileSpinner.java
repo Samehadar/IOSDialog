@@ -115,6 +115,8 @@ public class CamomileSpinner extends android.support.v7.widget.AppCompatImageVie
 
     public void recreateWithParams(Context context, @ColorInt int spinnerColor, int duration, boolean clockwise) {
         boolean wasRunning = false;
+        boolean oneShot = isOneShot();
+
         if (((AnimationDrawable)this.getBackground()).isRunning()) {
             wasRunning = true;
             stop();
@@ -122,6 +124,7 @@ public class CamomileSpinner extends android.support.v7.widget.AppCompatImageVie
 
         AnimationDrawable newSpinner = createSpinner(context, spinnerColor, duration, clockwise);
         if (newSpinner != null) {
+            if (oneShot) newSpinner.setOneShot(true);
             this.spinnerColor = spinnerColor;
             this.duration = duration;
             this.clockwise = clockwise;
@@ -129,6 +132,14 @@ public class CamomileSpinner extends android.support.v7.widget.AppCompatImageVie
         }
 
         if (wasRunning) start();
+    }
+
+    public void setOneShot(boolean oneShot) {
+        ((AnimationDrawable) this.getBackground()).setOneShot(oneShot);
+    }
+
+    public boolean isOneShot() {
+        return ((AnimationDrawable) this.getBackground()).isOneShot();
     }
 
 }

@@ -111,6 +111,8 @@ public class IOSDialog extends Dialog {
 
         protected boolean spinnerClockwise = true;
 
+        protected boolean oneShot = false;
+
         protected boolean isTitleColorSet = false;
         protected boolean isMessageColorSet = false;
         protected boolean isSpinnerColorSet = false;
@@ -277,6 +279,11 @@ public class IOSDialog extends Dialog {
 
         public Builder setSpinnerClockwise(boolean spinnerClockwise) {
             this.spinnerClockwise = spinnerClockwise;
+            return this;
+        }
+
+        public Builder setOneShot(boolean oneShot) {
+            this.oneShot = oneShot;
             return this;
         }
 

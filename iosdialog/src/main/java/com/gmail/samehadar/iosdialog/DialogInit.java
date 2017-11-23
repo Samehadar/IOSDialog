@@ -95,14 +95,15 @@ public class DialogInit {
     }
 
     private static void setupSpinner(IOSDialog dialog, IOSDialog.Builder builder) {
-            if (builder.spinnerColor == 0) builder.spinnerColor = CamomileSpinner.DEFAULT_COLOR;
-            if (builder.spinnerDuration == 0) builder.spinnerDuration = CamomileSpinner.DEFAULT_DURATION;
-            dialog.spinner.recreateWithParams(
-                    builder.context,
-                    builder.spinnerColor,
-                    builder.spinnerDuration,
-                    builder.spinnerClockwise
-            );
+        if (builder.spinnerColor == 0) builder.spinnerColor = CamomileSpinner.DEFAULT_COLOR;
+        if (builder.spinnerDuration == 0) builder.spinnerDuration = CamomileSpinner.DEFAULT_DURATION;
+        if (builder.oneShot) dialog.spinner.setOneShot(true);
+        dialog.spinner.recreateWithParams(
+                builder.context,
+                builder.spinnerColor,
+                builder.spinnerDuration,
+                builder.spinnerClockwise
+        );
     }
 
     private static void setupListeners(IOSDialog dialog, IOSDialog.Builder builder) {
