@@ -5,9 +5,11 @@ import android.os.Build;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.UiThread;
 import android.text.method.LinkMovementMethod;
+import android.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.gmail.samehadar.iosdialog.utils.DialogUtils;
@@ -32,6 +34,7 @@ public class DialogInit {
         final IOSDialog.Builder builder = dialog.builder;
 
         // Retrieve references to views
+        dialog.movableContainer = (RelativeLayout) dialog.rootView.findViewById(R.id.movable_container);
         dialog.titleFrame = (LinearLayout) dialog.rootView.findViewById(R.id.title_frame);
         dialog.titleIcon = (ImageView) dialog.rootView.findViewById(R.id.title_icon);
         dialog.title = (TextView) dialog.rootView.findViewById(R.id.title_text);
@@ -63,13 +66,22 @@ public class DialogInit {
                     .getColor(builder.context, R.color.standard_white);
         }
 
+        setupMovableContainer(dialog, builder);
         setupTitle(dialog, builder);
         setupSpinner(dialog, builder);
         setupMessageContent(dialog, builder);
         setupListeners(dialog, builder);
 
-
         dialog.setContentView(dialog.rootView);
+    }
+
+    private static void setupMovableContainer(IOSDialog dialog, IOSDialog.Builder builder) {
+        if (builder.customLayoutParams != null) dialog.movableContainer.setLayoutParams(builder.customLayoutParams);
+        RelativeLayout.LayoutParams consumer = (RelativeLayout.LayoutParams) dialog.movableContainer.getLayoutParams();
+        for (Pair<Integer, ? super Integer> rule : builder.layoutParamsRules) {
+            if (rule.second != null) consumer.addRule(rule.first, (Integer)rule.second);
+            else consumer.addRule(rule.first);
+        }
     }
 
     private static void setupTitle(IOSDialog dialog, IOSDialog.Builder builder) {

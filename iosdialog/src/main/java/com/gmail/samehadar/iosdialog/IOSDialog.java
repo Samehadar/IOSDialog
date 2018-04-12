@@ -17,15 +17,19 @@ import android.support.annotation.StringRes;
 import android.support.annotation.StyleRes;
 import android.support.annotation.UiThread;
 import android.text.Html;
+import android.util.Pair;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.gmail.samehadar.iosdialog.utils.DialogUtils;
+
+import java.util.ArrayList;
 
 /**
  * Created by Vitalu on 4/17/2017. "Head Up Display" HUD
@@ -36,6 +40,7 @@ public class IOSDialog extends Dialog {
     protected IOSDialog.Builder builder;
     //TODO:: change to custom view, when realize custom view
     protected ViewGroup rootView;
+    protected RelativeLayout movableContainer;
     protected LinearLayout titleFrame;
     protected ImageView titleIcon;
     protected TextView title;
@@ -74,6 +79,9 @@ public class IOSDialog extends Dialog {
 
     public static class Builder {
 
+        protected RelativeLayout.LayoutParams customLayoutParams;
+        protected ArrayList<Pair<Integer, ? super Integer>> layoutParamsRules;
+
         protected Context context;
         protected View customView;
         protected CharSequence title;
@@ -111,6 +119,7 @@ public class IOSDialog extends Dialog {
         protected boolean isBackgroundColorSet = false;
 
         public Builder(Context context) {
+            this.layoutParamsRules = new ArrayList<>();
             this.context = context;
             this.theme = R.style.CamomileDialog;
             this.cancelable = true;
@@ -291,6 +300,33 @@ public class IOSDialog extends Dialog {
 
         public Builder setTitleColorAttr(@AttrRes int colorAttr) {
             return setTitleColor(DialogUtils.resolveColor(this.context, colorAttr));
+        }
+
+        /**
+         * Be careful! Your added rules would be applied to this {@link android.widget.RelativeLayout.LayoutParams}
+         * @return {@link Builder} IOSDialog.Builder
+         */
+        public Builder setLayoutParams(RelativeLayout.LayoutParams params) {
+            this.customLayoutParams = params;
+            return this;
+        }
+
+        /**
+         * This function just applies your layout verb, such as {@link android.widget.RelativeLayout.LayoutParams#CENTER_VERTICAL} to {@link CamomileSpinner} view
+         * @return {@link Builder} IOSDialog.Builder
+         */
+        public Builder addLayoutParamsRule(int verb) {
+            this.layoutParamsRules.add(Pair.create(verb, null));
+            return this;
+        }
+
+        /**
+         * This function just applies your layout verb, such as {@link android.widget.RelativeLayout.LayoutParams#CENTER_VERTICAL} to {@link CamomileSpinner} view
+         * @return {@link Builder} IOSDialog.Builder
+         */
+        public Builder addLayoutParamsRule(int verb, int subject) {
+            this.layoutParamsRules.add(Pair.create(verb, subject));
+            return this;
         }
 
         /**
